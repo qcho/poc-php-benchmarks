@@ -2,43 +2,52 @@
 
 namespace classes;
 
-/**
- * Singletons & Interfaces
- *  PROS:
- *      + builtin to php. just classes and extensions.
- *      + straight forward to implement but somewhat tedious.
- *      + Singletons for only one subclass in memory.
- *      + Can TypeHint.
- *          + Even adding extra interface layering like x-axis: N & S, y-axis: W & E
- *      + easy to add custom behaviour like "oposite".
- *      + can iterate over values:
- *          + public array SplEnum::getConstList ([ bool $include_default = false ] )
- *      + Good performnace. === can be done.
- *  CONS:
- *      - no easy default value.
- *      - no easy iteration over all possible extensions.
- *      - you need to call getInstance. abbreviated with `X::i();`
- */
 class Bench {
     public function benchPhpClassesEnum() {
-        $this->example(Direction::EAST());
+        $d = v1\Direction::EAST();
+        $v1 = $d == v1\Direction::EAST();
+        $v2 = $d == v1\Direction::WEST();
+        $v3 = $d === v1\Direction::EAST();
+        $v4 = $d === v1\Direction::WEST();
     }
 
     public function benchPhpClassesEnumV2() {
-        $this->example2(Direction2::EAST());
+        $d = v2\Direction::DEFAULT();
+        $v1 = $d == v2\Direction::EAST();
+        $v2 = $d == v2\Direction::WEST();
+        $v3 = $d === v2\Direction::EAST();
+        $v4 = $d === v2\Direction::WEST();
     }
 
-    function example(Direction $d) {
-        $v1 = $d == Direction::EAST();
-        $v2 = $d == Direction::WEST();
-        $v3 = $d === Direction::EAST();
-        $v4 = $d === Direction::WEST();
+    public function benchPhpClassesEnumV3Directions() {
+        $d = v3\directions\Direction::DEFAULT();
+        $v1 = $d == v3\directions\Direction::NORTH();
+        $v2 = $d == v3\directions\Direction::WEST();
+        $v3 = $d === v3\directions\Direction::NORTH();
+        $v4 = $d === v3\directions\Direction::WEST();
     }
 
-    function example2(Direction2 $d) {
-        $v1 = $d == Direction2::EAST();
-        $v2 = $d == Direction2::WEST();
-        $v3 = $d === Direction2::EAST();
-        $v4 = $d === Direction2::WEST();
+    public function benchPhpClassesEnumV3Days() {
+        $d = v3\days\Day::DEFAULT();
+        $v1 = $d == v3\days\Day::SUNDAY();
+        $v2 = $d == v3\days\Day::WEDNESDAY();
+        $v3 = $d === v3\days\Day::SUNDAY();
+        $v4 = $d === v3\days\Day::WEDNESDAY();
+    }
+
+    public function benchPhpClassesEnumV4Directions() {
+        $d = v4\directions\Direction::DEFAULT();
+        $v1 = $d == v4\directions\Direction::NORTH();
+        $v2 = $d == v4\directions\Direction::WEST();
+        $v3 = $d === v4\directions\Direction::NORTH();
+        $v4 = $d === v4\directions\Direction::WEST();
+    }
+
+    public function benchPhpClassesEnumV4Days() {
+        $d = v4\days\Day::DEFAULT();
+        $v1 = $d == v4\days\Day::SUNDAY();
+        $v2 = $d == v4\days\Day::WEDNESDAY();
+        $v3 = $d === v4\days\Day::SUNDAY();
+        $v4 = $d === v4\days\Day::WEDNESDAY();
     }
 }

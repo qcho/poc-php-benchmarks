@@ -7,5 +7,5 @@ composer.phar:
 
 .PHONY: bench
 bench:
-	vendor/bin/phpbench run benchmarks/ --report='generator: "table", break: ["revs"], cols: ["subject", "mean", "mem_peak"]' --revs=1000 --iterations=10
+	vendor/bin/phpbench run benchmarks/ --report='generator: "table", break: ["revs"], cols: ["subject", "mean", "sum", "mem_peak"]' --revs=1000 --iterations=10
 
