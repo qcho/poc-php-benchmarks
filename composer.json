@@ -1,0 +1,23 @@
+{
+  "name": "qcho/poc-php-enums",
+  "description": "testing available enum variants in php",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Qcho",
+      "email": "qcho86@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "require": {
+    "myclabs/php-enum": "1.5.0"
+  },
+  "require-dev": {
+    "phpbench/phpbench": "@dev"
+  }
+}
